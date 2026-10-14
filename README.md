@@ -4,6 +4,10 @@ One command to launch any installed AI CLI agent. Lists everything on your
 machine with a colour for each brand, lets you pick one, and hands the terminal
 straight to it.
 
+```sh
+curl -fsSL https://raw.githubusercontent.com/12britz/rove/main/setup.sh | bash
+```
+
 <img width="757" height="374" alt="image" src="https://github.com/user-attachments/assets/3c631936-6ac8-471c-95ff-6da7b02b269c" />
 
 
