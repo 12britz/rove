@@ -88,6 +88,9 @@ Options:
 | `--no-animate` | disable the animated banner shimmer |
 | `-v`, `--version` | print version |
 
+<img width="757" height="374" alt="image" src="https://github.com/user-attachments/assets/273b2d22-4380-48bb-af97-c231bcc51e8e" />
+
+
 Environment:
 
 | Variable | Description |
