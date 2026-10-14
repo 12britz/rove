@@ -11,6 +11,7 @@ set -euo pipefail
 #   ROVE_REPO        source repo. Default: 12britz/rove
 
 REPO="${ROVE_REPO:-12britz/rove}"
+MODULE="github.com/${REPO}"
 BIN="rove"
 INSTALL_DIR="${ROVE_INSTALL_DIR:-$HOME/.local/bin}"
 VERSION="${ROVE_VERSION:-}"
@@ -74,14 +75,14 @@ install_from_release() {
 install_from_go() {
   need go || return 1
   ref="${VERSION:-latest}"
-  info "no release binary available; building from source (go install ${REPO}@${ref})..."
-  GOBIN="$tmp" GOFLAGS="-trimpath" go install "${REPO}@${ref}" || return 1
+  info "no release binary available; building from source (go install ${MODULE}@${ref})..."
+  GOBIN="$tmp" GOFLAGS="-trimpath" go install "${MODULE}@${ref}" || return 1
   [ -f "$tmp/$BIN" ] || return 1
   install_binary "$tmp/$BIN"
 }
 
 if ! install_from_release; then
-  install_from_go || err "installation failed (no usable release and no Go toolchain found)"
+  install_from_go || err "installation failed: no downloadable release and no working Go toolchain"
 fi
 
 case ":$PATH:" in
