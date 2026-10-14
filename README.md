@@ -51,6 +51,10 @@ curl -fsSL https://raw.githubusercontent.com/12britz/rove/main/setup.sh | bash
 This downloads the latest prebuilt binary to `~/.local/bin`. Override with
 `ROVE_VERSION=v0.1.0` or `ROVE_INSTALL_DIR=/usr/local/bin`.
 
+rove can also install the AI CLI agents themselves, not just the ones already on
+your machine: run `rove -a` to include known-but-missing agents, then press
+`⏎` on one to install it, or run `rove install <name>` directly.
+
 From source:
 
 ```sh
