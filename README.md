@@ -4,16 +4,8 @@ One command to launch any installed AI CLI agent. Lists everything on your
 machine with a colour for each brand, lets you pick one, and hands the terminal
 straight to it.
 
-```
-  ⚡ rove · pick your AI CLI
-    ▸  Claude Code              claude       2.1.296
-         Codex CLI              codex        0.144.5
-         OpenCode               opencode     1.18.31
-         Crush                  crush        0.56.0
-    ─────────────────────────────────────────────
-      ● 4 installed · 23 total · 4 matched
-      ↑↓ move · ⏎ run/install · u uninstall · / filter · ? help · q quit
-```
+<img width="757" height="374" alt="image" src="https://github.com/user-attachments/assets/3c631936-6ac8-471c-95ff-6da7b02b269c" />
+
 
 On wide terminals the picker shows an agent detail card next to the list:
 
