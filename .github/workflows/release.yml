@@ -1,0 +1,37 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goos: [darwin, linux]
+        goarch: [amd64, arm64]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: build
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+          CGO_ENABLED: "0"
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          ver="${tag#v}"
+          go build -trimpath -ldflags "-s -w -X main.version=${tag}" -o rove .
+          tar -czf "rove_${ver}_${{ matrix.goos }}_${{ matrix.goarch }}.tar.gz" rove
+      - name: release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: rove_*.tar.gz
+          generate_release_notes: true

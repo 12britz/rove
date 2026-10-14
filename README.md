@@ -38,6 +38,17 @@ On wide terminals the picker shows an agent detail card next to the list:
 
 ## Install
 
+One-liner (macOS / Linux):
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/12britz/rove/main/setup.sh | bash
+```
+
+This downloads the latest prebuilt binary to `~/.local/bin`. Override with
+`ROVE_VERSION=v0.1.0` or `ROVE_INSTALL_DIR=/usr/local/bin`.
+
+From source:
+
 ```sh
 brew install go          # if not already installed
 cd rove
