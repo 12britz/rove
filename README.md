@@ -65,23 +65,38 @@ make install            # copies `rove` to ~/.local/bin
 
 ## Usage
 
-```
-  rove                     interactive picker
-  rove <name> [args...]    launch an agent directly
-  rove -- <name> [args]    same, for args that start with a dash
-  rove stats, rove ps      live stats dashboard of running agents
-  rove install <name>      run the managed installer for an agent
-  rove uninstall <name>    run the managed uninstaller for an agent
-  rove -l, --list          colourised table
-  rove --json              machine-readable JSON
-  rove -a, --all           include missing agents
-  rove --icons <mode>      brand icons: nerd (default) | ascii | none
-  rove --no-animate        disable the animated banner shimmer
-  rove -v, --version       print version
-```
+Commands:
 
-Environment: `ROVE_ICONS` sets the default icon mode; `NO_COLOR` disables
-colour and animation.
+| Command | Description |
+| --- | --- |
+| `rove` | interactive colour picker (TUI) |
+| `rove <agent> [args...]` | launch an agent directly |
+| `rove -- <agent> [args]` | same, for args beginning with a dash |
+| `rove stats` / `rove ps` | live stats dashboard of running agents |
+| `rove install <agent>` | run the managed installer for an agent |
+| `rove uninstall <agent>` | run the managed uninstaller for an agent |
+
+Options:
+
+| Option | Description |
+| --- | --- |
+| `-l`, `--list` | colourised table of detected agents |
+| `--json` | machine-readable JSON list |
+| `-a`, `--all` | also show known-but-not-installed agents |
+| `--icons <mode>` | brand icons: `nerd` (default) \| `ascii` \| `none` |
+| `--animate` | force the animated banner shimmer on |
+| `--no-animate` | disable the animated banner shimmer |
+| `-v`, `--version` | print version |
+
+Environment:
+
+| Variable | Description |
+| --- | --- |
+| `ROVE_ICONS` | default icon mode (`nerd` \| `ascii` \| `none`) |
+| `NO_COLOR` | disable colour and animation |
+| `ROVE_VERSION` | version to install via `setup.sh` (default: latest) |
+| `ROVE_INSTALL_DIR` | where `setup.sh` installs the binary (default: `~/.local/bin`) |
+| `ROVE_REPO` | source repo used by `setup.sh` (default: `12britz/rove`) |
 
 Picker keys: `↑ ↓` / `k j` move · `g G` first/last · `⏎` launch (install if
 missing) · `u u` uninstall · `/` filter · `?` help · `q` / `esc` quit.
